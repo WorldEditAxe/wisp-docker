@@ -1,5 +1,5 @@
 FROM alpine:latest
-EXPOSE 8080
+EXPOSE 80
 RUN mkdir /app
 WORKDIR /app
 COPY ./epoxy-server /app/
