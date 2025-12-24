@@ -1,17 +1,17 @@
 [server]
 bind = [
     "tcp",
-    "127.0.0.1:4000",
+    "127.0.0.1:8080",
 ]
 transport = "websocket"
 resolve_ipv6 = false
 tcp_nodelay = true
 file_raw_mode = false
-use_real_ip_headers = false
+use_real_ip_headers = true
 non_ws_response = ":3"
 max_message_size = 65536
 log_level = "INFO"
-runtime = "multithread"
+runtime = "singlethread"
 
 [wisp]
 allow_wsproxy = true
@@ -23,7 +23,9 @@ extensions = [
     "motd",
 ]
 password_extension_required = true
-certificate_extension_required = true
+certificate_extension_required = false
+read_limit = 10000000
+write_limit = 10000000
 
 [stream]
 tcp_nodelay = true
