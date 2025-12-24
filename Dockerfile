@@ -1,7 +1,7 @@
 FROM alpine:latest
-CMD mkdir /app
+RUN mkdir /app
 WORKDIR /app
 COPY ./epoxy-server /app/
 COPY ./config.toml /app/
 
-ENTRYPOINT ["/app/epoxy-server", "--format", "toml", "/app/config.toml"]
+CMD ["/app/epoxy-server", "--format", "toml", "/app/config.toml"]
